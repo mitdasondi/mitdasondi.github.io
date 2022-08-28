@@ -1914,3 +1914,12 @@ body .symp-btn{
 		left:-40px;
 	}
 }
+
+@media only screen and (max-width: 600px) {
+	.front-person-img > img {
+		transform:rotate(-45deg) translateY(50px) translateX(25px);
+		position:absolute;
+		bottom:0;
+		left:-40px;
+	}
+}

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070709">
 <title>Mit Dasondi — Senior Data Engineer</title>
 <meta name="description" content="Senior Data Engineer building cloud-native data platforms on GCP — dbt, BigQuery, Airflow, Iceberg. 6+ years turning raw chaos into governed data products.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -28,7 +29,7 @@
   --font-mono:'JetBrains Mono',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:#070709;overflow-x:hidden}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -670,18 +671,19 @@ document.querySelectorAll('.xp-row').forEach(row=>{
 (function(){
   const cv=document.getElementById('pipes'),ctx=cv.getContext('2d');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DPR=Math.min(window.devicePixelRatio||1,1.5);
   let W,H,nodes=[],edges=[],packets=[];
   const LIME='217,255,63';
 
   function build(){
-    W=cv.width=cv.offsetWidth*devicePixelRatio;
-    H=cv.height=cv.offsetHeight*devicePixelRatio;
+    W=cv.width=cv.offsetWidth*DPR;
+    H=cv.height=cv.offsetHeight*DPR;
     nodes=[];edges=[];packets=[];
     const layers=Math.max(4,Math.min(6,Math.floor(cv.offsetWidth/260)));
     for(let l=0;l<layers;l++){
       const n=3+((l*7+3)%3);
       for(let i=0;i<n;i++){
-        nodes.push({l,x:(l+.5)/layers*W,y:(i+.75)/(n+.5)*H*.9+H*.05,r:(2+((l+i)%3))*devicePixelRatio});
+        nodes.push({l,x:(l+.5)/layers*W,y:(i+.75)/(n+.5)*H*.9+H*.05,r:(2+((l+i)%3))*DPR});
       }
     }
     for(let l=0;l<layers-1;l++){
@@ -693,13 +695,13 @@ document.querySelectorAll('.xp-row').forEach(row=>{
     }
   }
   function spawn(){
-    if(packets.length>26)return;
+    if(packets.length>(cv.offsetWidth<760?12:26))return;
     const e=edges[Math.floor(Math.random()*edges.length)];
     packets.push({e,p:0,v:.004+Math.random()*.006});
   }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    ctx.lineWidth=1*devicePixelRatio;
+    ctx.lineWidth=1*DPR;
     edges.forEach(e=>{
       ctx.strokeStyle='rgba(242,242,238,.07)';
       ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);
@@ -711,19 +713,19 @@ document.querySelectorAll('.xp-row').forEach(row=>{
       ctx.fillStyle='rgba(242,242,238,.25)';
       ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,7);ctx.fill();
       ctx.strokeStyle='rgba(242,242,238,.12)';
-      ctx.beginPath();ctx.arc(n.x,n.y,n.r+5*devicePixelRatio,0,7);ctx.stroke();
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r+5*DPR,0,7);ctx.stroke();
     });
     packets.forEach(pk=>{
       const {a,b}=pk.e,t=pk.p,mx=(a.x+b.x)/2;
       const u=1-t;
       const x=u*u*u*a.x+3*u*u*t*mx+3*u*t*t*mx+t*t*t*b.x;
       const y=u*u*u*a.y+3*u*u*t*a.y+3*u*t*t*b.y+t*t*t*b.y;
-      const g=ctx.createRadialGradient(x,y,0,x,y,10*devicePixelRatio);
+      const g=ctx.createRadialGradient(x,y,0,x,y,10*DPR);
       g.addColorStop(0,`rgba(${LIME},.9)`);g.addColorStop(1,`rgba(${LIME},0)`);
       ctx.fillStyle=g;
-      ctx.beginPath();ctx.arc(x,y,10*devicePixelRatio,0,7);ctx.fill();
+      ctx.beginPath();ctx.arc(x,y,10*DPR,0,7);ctx.fill();
       ctx.fillStyle=`rgba(${LIME},1)`;
-      ctx.beginPath();ctx.arc(x,y,1.8*devicePixelRatio,0,7);ctx.fill();
+      ctx.beginPath();ctx.arc(x,y,1.8*DPR,0,7);ctx.fill();
       pk.p+=pk.v;
     });
     packets=packets.filter(p=>p.p<1);

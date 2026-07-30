@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#070709">
+<meta name="color-scheme" content="dark">
 <title>Mit Dasondi — Senior Data Engineer</title>
 <meta name="description" content="Senior Data Engineer building cloud-native data platforms on GCP — dbt, BigQuery, Airflow, Iceberg. 6+ years turning raw chaos into governed data products.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -17,6 +18,7 @@
    dark editorial · electric lime · pipeline aesthetics
    ============================================================ */
 :root{
+  color-scheme:dark only;
   --bg:#070709;
   --bg2:#0c0c11;
   --ink:#f2f2ee;
@@ -115,7 +117,8 @@ img{max-width:100%;display:block}
 @keyframes blink{50%{opacity:0}}
 .hero h1{
   font-family:var(--font-display);font-weight:800;text-transform:uppercase;
-  font-size:clamp(56px,12.5vw,190px);line-height:.9;letter-spacing:-.03em;
+  font-size:clamp(38px,12vw,190px);line-height:.9;letter-spacing:-.03em;
+  overflow-wrap:normal;
 }
 .hero h1 .row{display:block;overflow:hidden}
 .hero h1 .row span{display:block;transform:translateY(112%);animation:rise 1.1s cubic-bezier(.16,1,.3,1) forwards}

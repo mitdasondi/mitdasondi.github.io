@@ -115,6 +115,7 @@
   .case .block .lbl { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; }
   .case .result { color: var(--fg); font-weight: 500; }
   .case .result .num { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
+  .case .desc { font-size: .9rem; color: var(--muted); margin: 0; }
   .case .stack { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; }
   .chip { font-family: var(--font-mono); font-size: .68rem; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px; }
 
@@ -162,17 +163,17 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="eyebrow">Freelance Data Engineer · BigQuery · dbt · GCP</div>
-      <h1>I fix <span class="hl">broken data pipelines</span> and make the numbers reconcile.</h1>
-      <p class="lead">For teams on BigQuery and dbt: I track down why models are failing, why dashboards don't match the source of truth, and migrate data sources without breaking everything downstream.</p>
+      <div class="eyebrow">Freelance Analytics Engineer · BigQuery · dbt · GCP</div>
+      <h1>I build and own the <span class="hl">dbt + BigQuery</span> platforms your business runs on.</h1>
+      <p class="lead">From a 727-model dbt warehouse to the dashboards leadership actually trusts, I design, build and fix data platforms end-to-end on Google Cloud — and when the numbers drift, I find out why. Need a quick win first? Start with a Pipeline Health Audit.</p>
       <div class="cta">
         <a class="btn primary" href="#offer">See the Pipeline Health Audit →</a>
         <a class="btn" href="#work">View my work</a>
       </div>
       <div class="trust">
-        <span><b>4.5+ yrs</b> in production data engineering</span>
+        <span><b>727</b> dbt models owned in one platform</span>
+        <span><b>9</b> production dashboards shipped</span>
         <span><b>80%</b> fewer pipeline failures delivered</span>
-        <span><b>10,000+</b> property deals validated</span>
       </div>
     </div>
   </section>
@@ -215,36 +216,54 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Selected work</div>
-        <h2>Things I've built in production</h2>
-        <p>Real pipelines and platforms I owned end-to-end across property, healthcare and enterprise data.</p>
+        <h2>What I've built in production</h2>
+        <p>Real platforms and pipelines I owned end-to-end across property, health-tech and enterprise data.</p>
       </div>
       <div class="cases">
         <article class="case">
-          <span class="tag">Analytics platform</span>
-          <h3>AI sales scorecard pipeline for leadership</h3>
-          <div class="block"><span class="lbl">Problem</span>Sales leadership had no trusted, timely view of rep performance — decisions ran on hand-built Excel.</div>
-          <div class="block"><span class="lbl">Approach</span>Architected a full-stack pipeline on BigQuery + dbt feeding an AI-driven scorecard, with tested metrics delivered through Looker Studio.</div>
-          <div class="block result"><span class="lbl">Result</span>Replaced Excel reporting with leadership-grade analytics; <span class="num">10+</span> production dashboards live.</div>
-          <div class="stack"><span class="chip">BigQuery</span><span class="chip">dbt</span><span class="chip">Looker Studio</span></div>
+          <span class="tag">Analytics engineering</span>
+          <h3>Owned a 727-model dbt platform solo</h3>
+          <p class="desc">Built and maintained a dbt + BigQuery warehouse spanning 20+ business domains — brokers, sales consultants, call analytics, memberships and research.</p>
+          <div class="result"><span class="num">20+</span> domains modeled as one tested source of truth.</div>
+          <div class="stack"><span class="chip">dbt</span><span class="chip">BigQuery</span><span class="chip">SQL</span></div>
         </article>
         <article class="case">
           <span class="tag">Reliability</span>
-          <h3>Cut pipeline failures 80% with a fault-tolerant ELT framework</h3>
-          <div class="block"><span class="lbl">Problem</span>Ingestion from government portals, vendors, Gmail, Sheets, HubSpot and Zoom was fragile and constantly breaking.</div>
-          <div class="block"><span class="lbl">Approach</span>Standardized a reusable ELT framework on BigQuery, dbt, Airflow and Mage-AI with tests, monitoring and alerting via Cloud Logging.</div>
-          <div class="block result"><span class="lbl">Result</span><span class="num">80%</span> fewer pipeline failures and <span class="num">60%</span> faster incident response.</div>
-          <div class="stack"><span class="chip">dbt</span><span class="chip">Airflow</span><span class="chip">Mage-AI</span></div>
+          <h3>Cut pipeline failures 80%</h3>
+          <p class="desc">Replaced fragile ad-hoc ingestion (HubSpot, Gmail, Zoom, gov portals) with a fault-tolerant ELT framework on dbt, Airflow and Mage-AI — with tests, monitoring and Slack alerts.</p>
+          <div class="result"><span class="num">80%</span> fewer failures · <span class="num">60%</span> faster incident response.</div>
+          <div class="stack"><span class="chip">Airflow</span><span class="chip">Mage-AI</span><span class="chip">Cloud Logging</span></div>
         </article>
         <article class="case">
-          <span class="tag">Ingestion</span>
-          <h3>Automated CoreLogic AVM property data into BigQuery</h3>
-          <div class="block"><span class="lbl">Problem</span>Property valuation (AVM) data from CoreLogic was being pulled and loaded by hand.</div>
-          <div class="block"><span class="lbl">Approach</span>Built a containerized Cloud Run + Python pipeline to fetch AVM data via API into BigQuery, with Secret Manager and IAM removing all hardcoded credentials.</div>
-          <div class="block result"><span class="lbl">Result</span>Fully automated, secure feed — <span class="num">zero</span> manual handling.</div>
-          <div class="stack"><span class="chip">BigQuery</span><span class="chip">Cloud Run</span><span class="chip">Python</span></div>
+          <span class="tag">GenAI</span>
+          <h3>LLM pipeline that reads every sales call</h3>
+          <p class="desc">Built a GPT-4o pipeline that summarizes AI-reception phone calls — caller, intent and topic — and lands structured results in BigQuery for analytics.</p>
+          <div class="result">Turned unstructured calls into queryable data.</div>
+          <div class="stack"><span class="chip">Python</span><span class="chip">OpenAI</span><span class="chip">BigQuery</span></div>
+        </article>
+        <article class="case">
+          <span class="tag">BI &amp; scorecards</span>
+          <h3>9 dashboards leadership runs on</h3>
+          <p class="desc">Designed Looker Studio and Power BI dashboards — membership sales on 20+ dbt models, a CoreLogic P&amp;L, an AI sales scorecard — that retired Excel as the source of truth.</p>
+          <div class="result"><span class="num">10+</span> dashboards shipped; Excel retired.</div>
+          <div class="stack"><span class="chip">Looker Studio</span><span class="chip">Power BI</span><span class="chip">dbt</span></div>
+        </article>
+        <article class="case">
+          <span class="tag">Data marts</span>
+          <h3>CoreLogic property research marts</h3>
+          <p class="desc">Modeled CoreLogic indices, market trends (city / LGA / suburb), AVM change data and the Economist Pack into clean research marts feeding analyst dashboards.</p>
+          <div class="result">Trusted property-research data, refreshed on schedule.</div>
+          <div class="stack"><span class="chip">dbt</span><span class="chip">BigQuery</span><span class="chip">SQL</span></div>
+        </article>
+        <article class="case">
+          <span class="tag">Platform &amp; IaC</span>
+          <h3>Automated, secure GCP data platform</h3>
+          <p class="desc">Containerized ingestion on Cloud Run with Terraform-provisioned infrastructure, GitHub → Cloud Build CI/CD, and Secret Manager removing every hardcoded credential.</p>
+          <div class="result"><span class="num">Zero</span> manual handling · zero hardcoded secrets.</div>
+          <div class="stack"><span class="chip">Cloud Run</span><span class="chip">Terraform</span><span class="chip">Secret Manager</span></div>
         </article>
       </div>
-      <p class="more-work">Also: EHR system migration from legacy to IMS at a health-tech firm (<b>26%</b> lower server load) · a GCS document-validation service across <b>10,000+</b> property deals · high-performance SQL pipelines for <b>Aditya Birla Group</b> and <b>Ambuja Cement</b> · 10+ Looker Studio dashboards replacing Excel reporting.</p>
+      <p class="more-work">Earlier: EHR migration (legacy → IMS) at a health-tech firm — <b>26%</b> lower server load · high-performance SQL data pipelines for <b>Aditya Birla Group</b> and <b>Ambuja Cement</b> · a GCS document-validation service across <b>10,000+</b> property deals.</p>
       <div class="companies">
         <span class="co-lbl">Delivered for teams at</span>
         <div class="co-row">
@@ -279,6 +298,9 @@
         <span class="chip">Dimensional modeling</span>
         <span class="chip">Data quality &amp; testing</span>
         <span class="chip">Monitoring &amp; alerting</span>
+        <span class="chip">Terraform (IaC)</span>
+        <span class="chip">Fivetran</span>
+        <span class="chip">LLM / GenAI pipelines</span>
         <span class="chip">CI/CD</span>
       </div>
     </div>
